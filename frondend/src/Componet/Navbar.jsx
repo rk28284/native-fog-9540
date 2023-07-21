@@ -1,4 +1,5 @@
 import React from 'react'
+
 import {Box, Button, Flex, Image, Input, Link, SimpleGrid, Spacer,Text} from "@chakra-ui/react"
 import {ChevronDownIcon,SearchIcon} from "@chakra-ui/icons"
 export const Navbar = () => {
@@ -33,5 +34,7 @@ export const Navbar = () => {
     </Box>
     
    </div>
+
+
   )
 }
