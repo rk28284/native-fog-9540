@@ -7,8 +7,8 @@ function App() {
   return (
     <div className="App">
      <h1>Intial commit</h1>
-     {/* <Repo/> */}
-     <Dashboard/>
+     <Repo/>
+     {/* <Dashboard/> */}
     </div>
   );
 }
