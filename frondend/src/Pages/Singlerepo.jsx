@@ -8,6 +8,11 @@ export const Singlerepo = () => {
     <Avatar name='Dan Abrahmov' src='https://avatars.githubusercontent.com/u/112754760?v=4' />
   </WrapItem>
 </Wrap>
+<hr />  <Wrap>
+  <WrapItem>
+    <Avatar name='Dan Abrahmov' src='https://avatars.githubusercontent.com/u/112754760?v=4' />
+  </WrapItem>
+</Wrap>
 <hr />
     </div>
   )
