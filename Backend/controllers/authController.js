@@ -1,7 +1,7 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const User = require("../models/user");
-
+const RevokedToken = require("../models/revokedTokens");
 const register = async (req, res) => {
   try {
     const { username, password } = req.body;
@@ -42,5 +42,23 @@ const login = async (req, res) => {
     res.status(500).json({ message: "Internal server error" });
   }
 };
+const logout = async (req, res) => {
+  try {
+    const token = req.header('Authorization');
+    jwt.verify(token, 'Devnandan', async (err, decoded) => {
+      if (err) {
+        return res.status(401).json({ message: 'Invalid token.' });
+      }
+      const isTokenRevoked = await RevokedToken.exists({ token });
+      if (isTokenRevoked) {
+        return res.status(401).json({ message: 'Token already revoked.' });
+      }
+      await RevokedToken.create({ token });
 
-module.exports = { register, login };
+      res.json({ message: 'Logged out successfully' });
+    });
+  } catch (error) {
+    res.status(500).json({ message: 'Internal server error' });
+  }
+};
+module.exports = { register, login,logout };
