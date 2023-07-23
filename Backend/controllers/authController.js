@@ -4,7 +4,7 @@ const User = require("../models/user");
 const RevokedToken = require("../models/revokedTokens");
 const register = async (req, res) => {
   try {
-    const { username, password } = req.body;
+    const { username,email, password } = req.body;
 
     // Check if the user already exists
     const existingUser = await User.findOne({ username });
@@ -12,7 +12,7 @@ const register = async (req, res) => {
       return res.status(409).json({ message: "Username already exists" });
     }
     const hashedPassword = await bcrypt.hash(password, 10);
-    const user = new User({ username, password: hashedPassword });
+    const user = new User({ username,email, password: hashedPassword });
     await user.save();
 
     res.status(201).json({ message: "User registered successfully" });
