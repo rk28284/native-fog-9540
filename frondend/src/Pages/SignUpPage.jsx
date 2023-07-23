@@ -37,7 +37,7 @@ const SignUp = () => {
       return;
     }
     try {
-      const response = await axios.post("http://localhost:8080/auth/register", {
+      const response = await axios.post("https://code-collab-backend-ptyi.onrender.com/auth/register", {
         username,
         email,
         password,
