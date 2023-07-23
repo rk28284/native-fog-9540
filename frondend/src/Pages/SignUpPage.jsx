@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
 import {
   Button,
   Box,
@@ -18,6 +20,8 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import logo from "../Assets/Logo-transparent.png";
 
+import background from "../Assets/Landing-2.jpg";
+
 const SignUp = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -25,13 +29,28 @@ const SignUp = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const navigate = useNavigate();
 
   const handleSignUp = async () => {
     if (password !== confirmPassword) {
       toast.error("Passwords do not match");
       return;
     }
-    // Add your sign-up logic here
+    try {
+      const response = await axios.post("https://code-collab-backend-ptyi.onrender.com/auth/register", {
+        username,
+        email,
+        password,
+      });
+      if (response.status === 201) {
+        toast.success("Registration successful! Please log in.");
+        navigate("/signin");
+      } else {
+        toast.error(response.data.message);
+      }
+    } catch (error) {
+      toast.error("An error occurred. Please try again later.");
+    }
   };
 
   const handleTogglePassword = () => {
@@ -49,15 +68,20 @@ const SignUp = () => {
         minH={"100vh"}
         justify="center"
         align="center"
-        bgImage="url('https://wallpapersmug.com/download/1920x1080/aac738/horsehead-nebula-space-clouds.jpg')" 
+        bgImage={background}
         bgRepeat="repeat"
         bgSize="cover"
       >
         <Box maxW="600px" w={{ base: "90%", sm: "80%", md: "50%" }} p={4}>
           <Flex justify="center" mb={8}>
-            <Image alt={"Sign Up Image"} objectFit={"contain"} src={logo} h="100px" />
+            <Image
+              alt={"Sign Up Image"}
+              objectFit={"contain"}
+              src={logo}
+              h="100px"
+            />
           </Flex>
-          <Box bg="white" rounded="lg" boxShadow="lg" p={8} >
+          <Box bg="white" rounded="lg" boxShadow="lg" p={8}>
             <Stack spacing={4}>
               <Heading fontSize={{ base: "xl", md: "2xl" }} textAlign="center">
                 Create an account
@@ -125,7 +149,7 @@ const SignUp = () => {
                 Sign up
               </Button>
               <Text mt={2} textAlign="center" fontSize="md" color="black.500">
-                Already have an account? Sign in
+                Already have an account? <Link to="/signin">Sign in</Link>
               </Text>
             </Stack>
           </Box>
