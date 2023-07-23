@@ -16,7 +16,7 @@ import {
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import logo from "./Assets/Logo2.png";
+import logo from "../Assets/Logo-transparent.png";
 
 const SignUp = () => {
   const [username, setUsername] = useState("");
