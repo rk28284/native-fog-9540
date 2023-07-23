@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import { useLocation, useNavigate } from 'react-router-dom';
 import {
   Button,
   Box,
@@ -16,7 +16,8 @@ import {
   Text,
 } from '@chakra-ui/react';
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
-import logo from "./Assets/Logo2.png"
+import logo from "../Assets/Logo-transparent.png";
+import background from "../Assets/Landing-2.jpg";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -24,7 +25,8 @@ const SignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-
+  const location = useLocation();
+  const pathComingFrom = location.state?.from?.pathname || '/';
   const handleSignIn = async () => {
     // Perform sign-in logic here
   };
@@ -40,7 +42,7 @@ const SignIn = () => {
         minH={'100vh'}
         justify="center"
         align="center"
-        bgImage="url('https://wallpapersmug.com/download/1920x1080/aac738/horsehead-nebula-space-clouds.jpg')" 
+        bgImage={background} 
         bgRepeat="repeat"
         bgSize="cover"
       >
@@ -90,7 +92,7 @@ const SignIn = () => {
               </Button>
               <Text mt={2} textAlign="center" fontSize="md" color="black.500">
                 Don't have an account?{' '}
-                Sign up
+               <Link to="/signup"> Sign up</Link>
               </Text>
             </Stack>
           </Box>

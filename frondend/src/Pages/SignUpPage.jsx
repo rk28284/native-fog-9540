@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import {
   Button,
   Box,
@@ -16,8 +17,8 @@ import {
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import logo from "./Assets/Logo2.png";
-
+import logo from "../Assets/Logo-transparent.png";
+import background from "../Assets/Landing-2.jpg";
 const SignUp = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -25,7 +26,7 @@ const SignUp = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-
+  const navigate = useNavigate();
   const handleSignUp = async () => {
     if (password !== confirmPassword) {
       toast.error("Passwords do not match");
@@ -49,7 +50,7 @@ const SignUp = () => {
         minH={"100vh"}
         justify="center"
         align="center"
-        bgImage="url('https://wallpapersmug.com/download/1920x1080/aac738/horsehead-nebula-space-clouds.jpg')" 
+        bgImage={background}
         bgRepeat="repeat"
         bgSize="cover"
       >
@@ -125,7 +126,7 @@ const SignUp = () => {
                 Sign up
               </Button>
               <Text mt={2} textAlign="center" fontSize="md" color="black.500">
-                Already have an account? Sign in
+                Already have an account? <Link to="/signin">Sign in</Link>
               </Text>
             </Stack>
           </Box>
