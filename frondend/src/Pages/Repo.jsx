@@ -3,10 +3,12 @@ import { Box, Button, Checkbox, Flex, Heading, Input, Text } from "@chakra-ui/re
 import { InfoOutlineIcon } from "@chakra-ui/icons"
 import { useState } from 'react'
 import axios from "axios"
+import { useNavigate } from 'react-router-dom'
 export const Repo = () => {
 
   const [name, setName] = useState("");
 
+  const navigate = useNavigate()
   const handlsubmit = () => {
 
     let obj = {
@@ -21,7 +23,16 @@ export const Repo = () => {
       },
       body: JSON.stringify(obj),
     }).then((res) => res.json()).then((data) => {
-      console.log(data)
+      console.log(data.message)
+      if(data.message==="Repo created successfully"){
+
+        navigate("/")
+
+      }
+      else{
+
+        window.alert(data.message)
+      }
     }).catch((error) => {
       console.log(error)
     })

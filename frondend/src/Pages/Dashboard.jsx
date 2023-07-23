@@ -1,31 +1,51 @@
 import { Box, Button, Flex, HStack, Img, Input, Link, Text, textDecoration, VStack } from '@chakra-ui/react'
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect } from 'react'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 
 export const Dashboard = () => {
 const navigate = useNavigate()
-  const data = [
-    { repo: "reposiratory  1" },
-    { repo: "reposiratory  2" },
-    { repo: "reposiratory  3" },
-    { repo: "reposiratory  4" },
-    { repo: "reposiratory  1" },
-    { repo: "reposiratory  2" },
-    { repo: "reposiratory  3" },
-    { repo: "reposiratory  4" },
-    { repo: "reposiratory  5" }
-    // { repo: "reposiratory  1" },
-    // { repo: "reposiratory  2" },
-    // { repo: "reposiratory  3" },
-    // { repo: "reposiratory  4" },
-    // { repo: "reposiratory  1" },
-    // { repo: "reposiratory  2" },
-    // { repo: "reposiratory  3" },
-    // { repo: "reposiratory  4" },
-    // { repo: "reposiratory  5" },
-    // { repo: "reposiratory  5" }
-  ]
+const [data,setData] = useState([])
+  // const data = [
+  //   { repo: "reposiratory  1" },
+  //   { repo: "reposiratory  2" },
+  //   { repo: "reposiratory  3" },
+  //   { repo: "reposiratory  4" },
+  //   { repo: "reposiratory  1" },
+  //   { repo: "reposiratory  2" },
+  //   { repo: "reposiratory  3" },
+  //   { repo: "reposiratory  4" },
+  //   { repo: "reposiratory  5" }
+  //   // { repo: "reposiratory  1" },
+  //   // { repo: "reposiratory  2" },
+  //   // { repo: "reposiratory  3" },
+  //   // { repo: "reposiratory  4" },
+  //   // { repo: "reposiratory  1" },
+  //   // { repo: "reposiratory  2" },
+  //   // { repo: "reposiratory  3" },
+  //   // { repo: "reposiratory  4" },
+  //   // { repo: "reposiratory  5" },
+  //   // { repo: "reposiratory  5" }
+  // ]
+  useEffect(()=>{
+
+    fetch(`https://code-collab-backend-ptyi.onrender.com/repos/userRepo`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": localStorage.getItem("token")
+      }
+    }).then((res) => res.json()).then((res) => {
+      console.log(res.repos)
+      setData(res.repos)
+    }).catch((error) => {
+      console.log(error)
+    })
+  },[])
+  
+  
 
   const handleClick = ()=>{
 
@@ -44,7 +64,7 @@ const navigate = useNavigate()
         <Input padding="10px" border="1px solid" width="70%" borderRadius="7px" placeholder='Find a reposiratory...'></Input>
         <VStack>
           {data?.map((ele,index) => {
-            return <Link key={index} href='#' textDecoration="none">{ele.repo}</Link>
+            return <Link key={index} href='#' textDecoration="none">{ele.name}</Link>
           })}
         </VStack>
         <Img src="https://i.ibb.co/RpTMBLT/dashboard-png-2.jpg"></Img>
