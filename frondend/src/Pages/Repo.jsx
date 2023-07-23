@@ -13,10 +13,12 @@ export const Repo = () => {
       name
     }
 
-  let data  =  axios.post(`http://localhost:8080/create`,obj).then((res)=>res.data);
-
-  console.log(data)
-
+  fetch(`http://localhost:8080/repos/create`,{
+    method:"POST",
+    headers:{
+      "Content-Type":"application/json",
+    }
+  })
   }
   return (
     <Box fontFamily="-apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif" textAlign="start" width="50%" margin="auto">
