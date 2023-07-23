@@ -12,7 +12,6 @@ export const Allroutes = () => {
             <Route path='*' element={<Notfound/>}/>
             <Route path='/dashboard' element={<Dashboard/>}/>
             <Route path='/repo' element={<Repo/>}/>
-
             <Route path='/' element={<HomePage/>}/>
 
         </Routes>

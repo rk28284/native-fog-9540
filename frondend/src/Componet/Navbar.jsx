@@ -1,8 +1,16 @@
 import React from 'react'
+
 import {Box, Button, Flex, Image, Input, Link, SimpleGrid, Spacer,Text} from "@chakra-ui/react"
 import {ChevronDownIcon,HamburgerIcon} from "@chakra-ui/icons"
 import logo from "../Assets/Logo-transparent.png";
 import styled from '@emotion/styled';
+
+
+// import {Box, Button, Flex,
+//    Image, Input, Link, SimpleGrid, Spacer,Text} from "@chakra-ui/react"
+import {Box, Button, Flex,Image, Input, Link, SimpleGrid, Spacer,Text} from "@chakra-ui/react"
+import {ChevronDownIcon,SearchIcon} from "@chakra-ui/icons"
+
 export const Navbar = () => {
   return (
    <DIV  >
