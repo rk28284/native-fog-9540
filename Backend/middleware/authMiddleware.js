@@ -13,7 +13,7 @@ const authMiddleware = async (req, res, next) => {
       return res.status(401).json({ message: "Token revoked. Please log in again."});
     }
     // Verify the access token
-    const decoded = jwt.verify(token, 'Devnandan');
+    const decoded = jwt.verify(token, 'codecollab');
     req.user = { userId: decoded.userId };
     next();
   } catch (error) {
