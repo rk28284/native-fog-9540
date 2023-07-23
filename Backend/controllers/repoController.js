@@ -35,5 +35,14 @@ const deleteRepo = async (req, res) => {
     res.status(500).json({ message: "Internal server error" });
   }
 };
+const getRepos = async (req, res) => {
+  try {
+    const createdBy = req.user.userId;
+    const userRepos = await Repo.find({ createdBy });
 
-module.exports = { createRepo, deleteRepo };
+    res.status(200).json({ repos: userRepos });
+  } catch (error) {
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
+module.exports = { createRepo, deleteRepo,getRepos };
