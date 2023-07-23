@@ -18,7 +18,7 @@ export const Navbar = () => {
         </Box>
         <Flex gap={2}  className='Content' m={"auto"}  >
           <Box ml={2}>
-          <Link href='./Product.png' textDecoration={"none"}><Text _hover={{color:"#BDBDBD"}} color={"white"}>Product <ChevronDownIcon color={"grey"}/></Text></Link>
+          <Link href='*' textDecoration={"none"}><Text _hover={{color:"#BDBDBD"}} color={"white"}>Product <ChevronDownIcon color={"grey"}/></Text></Link>
           </Box>
           <Box>
           <Link href='*' textDecoration={"none"}><Text _hover={{color:"#BDBDBD"}} color={"white"}>Solution <ChevronDownIcon color={"grey"}/></Text></Link>
