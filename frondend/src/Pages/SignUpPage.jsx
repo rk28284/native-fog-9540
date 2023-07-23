@@ -18,7 +18,11 @@ import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import logo from "../Assets/Logo-transparent.png";
+
 import background from "../Assets/Landing-2.jpg";
+=======
+
+
 const SignUp = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
