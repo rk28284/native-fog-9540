@@ -12,7 +12,7 @@ function App() {
   return (
     <div className="App">
 
-     <Allroutes/>
+      {/* <Allroutes/>  */}
      {/* <h1>Intial commit</h1> */}
      {/* <Repo/> */}
 
@@ -20,8 +20,8 @@ function App() {
      <h1>Intial commit</h1>
      <Repo/> */}
 
-     {/* <Dashboard/> */}
-     {/* <Singlerepo/> */}
+     {/* //<Dashboard/> */}
+   <Singlerepo/> 
     </div>
   );
 }
