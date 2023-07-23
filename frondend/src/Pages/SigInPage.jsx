@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, json } from "react-router-dom";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import {
@@ -43,6 +43,7 @@ const SignIn = () => {
         console.log(token);
         toast.success("Login successful!");
         navigate(pathComingFrom, { replace: true });
+        localStorage.setItem('username',JSON.stringify(username))
       } else {
         toast.error(
           response.data.message || "An error occurred. Please try again later."

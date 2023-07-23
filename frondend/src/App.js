@@ -13,7 +13,7 @@ function App() {
     <div className="App">
 
      <Allroutes/>
-     <h1>Intial commit</h1>
+     {/* <h1>Intial commit</h1> */}
      {/* <Repo/> */}
 
      {/* <Allroutes/>
@@ -21,7 +21,7 @@ function App() {
      <Repo/> */}
 
      {/* <Dashboard/> */}
-     <Singlerepo/>
+     {/* <Singlerepo/> */}
     </div>
   );
 }

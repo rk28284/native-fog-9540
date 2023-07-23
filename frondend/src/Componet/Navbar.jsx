@@ -2,13 +2,23 @@ import React from 'react'
 import logo from "../Assets/Logo-transparent.png";
 import styled from '@emotion/styled';
 
-
+import { useNavigate } from 'react-router-dom';
 // import {Box, Button, Flex,
 //    Image, Input, Link, SimpleGrid, Spacer,Text} from "@chakra-ui/react"
 import {Box, Button, Flex,Image, Input, Link, SimpleGrid, Spacer,Text} from "@chakra-ui/react"
 import {ChevronDownIcon,SearchIcon,HamburgerIcon} from "@chakra-ui/icons"
 
 export const Navbar = () => {
+  let userName = JSON.parse(localStorage.getItem("username"));
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    if(userName){
+      localStorage.removeItem("username");
+      window.location.reload();
+    }else{
+        navigate("/signup");
+    }
+  }
   return (
    <DIV  >
     <Box  m={"auto"} >
@@ -37,8 +47,8 @@ export const Navbar = () => {
         
         <Box m={"auto"} mt={2} >
         <Flex className='btn'  gap={2} mr={2} mt={2}>
-          <Button className='Signin' _hover={{color:"grey"}} w={20} background={"none"} color={"white"} >SignIn</Button>
-          <Button className='signup'  w={20} _hover={{bg:"none",color:"grey",border:"1px solid grey"}} border={"1px solid white"} background={"none"} color={"white"}>Signup</Button>
+          <Link href='signin'><Button className='Signin' _hover={{color:"grey"}} w={20} background={"none"} color={"white"} >{userName? `Hi ${userName}`:"SignIn"}</Button></Link>
+          <Link href='/signup'><Button className='signup'  w={20} _hover={{bg:"none",color:"grey",border:"1px solid grey"}} border={"1px solid white"} background={"none"} color={"white"} onClick={handleLogout}>{(JSON.parse(localStorage.getItem("username"))&&"LogOut")||"SignUp"}</Button></Link>
           <Box className='icon'>
           <HamburgerIcon w={20} color={"#ffffff"}/>
         </Box>
@@ -87,7 +97,7 @@ const DIV=styled.div`
     align-items: end;
     }
     .signup{
-      display: none
+      display: block
     }
   }
   @media all and (max-width:480px){
@@ -115,7 +125,7 @@ const DIV=styled.div`
       align-items: end;
     }
     .signup{
-      display: none
+      display: block
     }
   }
   `

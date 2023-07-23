@@ -11,10 +11,12 @@ import logo5 from "../Assets/homeimg 6.png"
 import logo6 from "../Assets/homeimg 7.png"
 import logo7 from "../Assets/homeimg 8.png"
 import logo8 from "../Assets/homeimg 9.png"
+import logo9 from "../Assets/Landing-1.jpg"
 import { Footer } from "../Componet/Footer";
+import { Link } from "react-router-dom";
 export const HomePage=()=>{
     return <div>
-        <Box backgroundImage="url(https://wallpapercave.com/wp/wp5813847.jpg)"
+        <Box bgGradient='linear(to-t,black, #AB47BC,black)'
         backgroundSize="cover" backgroundRepeat={"no-repeat"} h={"auto"} w={"100%"} position={"absolute"}>
         <Navbar/>
         <Box m={"auto"} w={"80%"} fontFamily={"apple-system, BlinkMacSystemFont ,Segoe UI Noto Sans, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji"} fontWeight={400}>
@@ -36,9 +38,9 @@ export const HomePage=()=>{
             </Box>
             <Flex mt={5}>
                 <Input type="text" placeholder="Email address" bg={"white"} color={"black"} _hover={{border:"1px solid #2196F3"}} w={350}/>
-                <Button color={"white"} bg={"#7140c8"} _hover={"none"} overflow={"auto"}>Sign up for GitHub</Button>
+                <Link to={"/signup"}><Button color={"white"} bg={"#7140c8"} _hover={"none"} overflow={"auto"}>Sign up for GitHub</Button></Link>
                 <Box  border={"1px solid #7140c8"} color={"white"} bg={"black"} p={2} borderRadius={10} _hover={{border:"1px solid white"}} ml={10}>
-                    <Text>Satrt a free enterprise trial <ChevronRightIcon/></Text>
+                    <Text>Start a free enterprise trial <ChevronRightIcon/></Text>
                 </Box>
             </Flex>
             <Text mt={10} textAlign={"justify"} color={"#BDBDBD"}>Trusted by the world’s leading organizations ↘︎</Text>
@@ -147,7 +149,7 @@ export const HomePage=()=>{
                 <Text fontSize={38} fontWeight={800} color={"white"} textAlign={"center"} >The place for anyone from anywhere <br /> to build anything</Text>
                 <Text fontSize={20} fontWeight={400} color={"grey"} >Whether you’re scaling your startup or just learning how to code, GitHub is <br /> your home. Join the world’s largest developer platform to build the <br /> innovations that empower humanity. Let’s build from here.</Text>
                 <Flex mt={5} justifyContent={"center"}>
-                    <Button color={"black"} bg={"white"} _hover={"none"} overflow={"auto"}>Sign up for GitHub <ChevronRightIcon/></Button>
+                    <Link to={"/signup"}><Button color={"black"} bg={"white"} _hover={"none"} overflow={"auto"}>Sign up for GitHub <ChevronRightIcon/></Button></Link>
                     <Box  border={"1px solid grey"} color={"white"} bg={"black"} p={2} borderRadius={10} _hover={{border:"1px solid white"}} ml={10} fontWeight={700}>
                         <Text>Satrt a free enterprise trial <ChevronRightIcon/></Text>
                     </Box>
