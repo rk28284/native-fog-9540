@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Link, json } from "react-router-dom";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import {
   Button,
@@ -26,9 +26,8 @@ const SignIn = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const location = useLocation();
   const navigate = useNavigate();
-  const pathComingFrom = location.state?.from?.pathname || "/";
+  
   const handleSignIn = async () => {
     try {
       const response = await axios.post("https://code-collab-backend-ptyi.onrender.com/auth/login", {
@@ -42,7 +41,7 @@ const SignIn = () => {
         localStorage.setItem("token", token);
         console.log(token);
         toast.success("Login successful!");
-        navigate(pathComingFrom, { replace: true });
+        navigate("/repo");
         localStorage.setItem('username',JSON.stringify(username))
       } else {
         toast.error(
