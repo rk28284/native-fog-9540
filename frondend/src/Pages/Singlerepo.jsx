@@ -6,10 +6,11 @@ import { Link } from 'react-router-dom';
 import logo from "../Assets/desktop.png"
 import logo1 from "../Assets/gitimage.png"
 import { Footer } from '../Componet/Footer';
+import {Navbar} from "../Componet/Navbar"
 export const Singlerepo = () => {
   return (
     <Box
-    bgGradient='linear(to-b,black,grey)'
+    bgGradient='linear(to-b,black,grey,black)'
       gap={4}
       backgroundSize="cover"
       backgroundRepeat="no-repeat"
@@ -17,7 +18,8 @@ export const Singlerepo = () => {
       w="100%"
       position="absolute"
     >
-      <Flex>
+     <Navbar /> 
+      <Flex mt={10}>
         <Box margin={"auto"}gap={5} display={"flex"} ml={4}>
          
             <Avatar name='Dan Abrahmov' src='https://avatars.githubusercontent.com/u/112754760?v=4' />
@@ -50,7 +52,7 @@ export const Singlerepo = () => {
                
                 </Box>
       </Flex>
-      <hr color='white' />
+      <hr color='white' style={{marginTop:"8px"}} />
      <Flex w={"85%"} margin={"auto"} >
         <Box m={"auto"} w={665} marginTop={5} borderRadius={10} padding={4} color={'white'}textAlign={"justify"} border={"1px solid grey"} bgColor={"black"} >
                     <Image  w={8} src="https://github.githubassets.com/images/modules/site/eyebrow-banner-icon-copilot-x.svg"/>
