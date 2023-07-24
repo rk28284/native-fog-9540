@@ -78,7 +78,7 @@ export const Singlerepo = () => {
                     <Text>SSH</Text>
                 </Box>
                 
-                <Input type="text" placeholder="https://github.com/rk28284/practice.git"  bg={"white"} color={"black"} _hover={{border:"1px solid #2196F3"}} w={800}/>
+                <Input type="text" placeholder="https://github.com/rk28284/practice.git"  bg={"white"} color={"black"} _hover={{border:"1px solid #2196F3"}} w={600}/>
                 <Box border={"1px solid grey"} w={10} h={10}>
                 <CopyIcon color={"white"}  margin={"3px 100px 0px 10px"} />
 
