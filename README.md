@@ -24,7 +24,7 @@ https://code-collab-backend-ptyi.onrender.com/
 -Sukumar
 
 # What we worked On
---Landing Page
+-Landing Page
 ![readme home](https://github.com/rk28284/native-fog-9540/assets/115460777/984dd09e-e3c1-48f1-92d8-5d02f6af8447)
 
 -Signup & Login Page
