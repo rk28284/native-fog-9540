@@ -5,7 +5,7 @@ import {
     SimpleGrid,
     Stack,
     Text,
-    Heading, Button,Image
+   Button,Image
   } from '@chakra-ui/react';
   import React from 'react';
   import logo from "../Assets/Logo-transparent.png";

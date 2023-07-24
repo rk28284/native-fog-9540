@@ -2,7 +2,6 @@ import React from 'react'
 import { Box, Button, Checkbox, Flex, Heading, Input, Text } from "@chakra-ui/react"
 import { InfoOutlineIcon } from "@chakra-ui/icons"
 import { useState } from 'react'
-import axios from "axios"
 import { useNavigate } from 'react-router-dom'
 export const Repo = () => {
 
@@ -26,7 +25,7 @@ export const Repo = () => {
       console.log(data.message)
       if(data.message==="Repo created successfully"){
 
-        navigate("/")
+        navigate("/si")
 
       }
       else{

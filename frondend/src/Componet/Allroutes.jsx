@@ -6,6 +6,7 @@ import { Repo } from "../Pages/Repo";
 import SignIn from "../Pages/SigInPage";
 import SignUp from "../Pages/SignUpPage";
 import { HomePage } from "../Pages/HomePage";
+import { Singlerepo } from "../Pages/Singlerepo";
 export const Allroutes = () => {
   return (
     <div>
@@ -16,6 +17,7 @@ export const Allroutes = () => {
         <Route path="/" element={<HomePage />} />
         <Route path="signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/singlerepo" element={<Singlerepo/>} />
       </Routes>
     </div>
   );
